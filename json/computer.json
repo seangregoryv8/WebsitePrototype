@@ -1,0 +1,15 @@
+{
+    "refurbished":
+    {
+        "type": "game",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    }
+}
