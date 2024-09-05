@@ -81,13 +81,14 @@ function formatTitle(title)
 
 document.addEventListener('DOMContentLoaded', () => 
 {
-    let navbar = document.getElementsByClassName("navbar")[0];
-    let items = navbar.getElementsByTagName("div");
+    let navBarOptions = document.getElementsByClassName("navBarOptions")[0];
+    let items = navBarOptions.getElementsByTagName("div");
     for (let i = 0; i < items.length; i++)
     {
         //items[i].children[0].style.backgroundColor = "#8b0000"
         items[i].children[0].addEventListener("click", () => 
         {
+            console.log(window.screen.availWidth)
             //items[i].children[0].style.backgroundColor = "#00AA00"
             document.getElementsByClassName("list")[0].textContent = "";
             showData(items[i].children[0].innerHTML);
