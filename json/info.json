@@ -1,0 +1,55 @@
+{
+    "aboutMe":
+    {
+        "en":
+        [
+            "I'm a computer scientist, enjoyer of all parts of the field, with an equal amount of enjoyment for film.",
+            "I really like telling stories and creating new means to explain topics and explore ideas in computers, psychology, and various other interesting topics.",
+            "I am currently pursuing a Joint Major in Computer Science and Computation Arts at Concordia University, with a Bachelor's Degree specifically in Computer Science (BCompSci).",
+            "I want to leave a legacy in the field, and be able to pass on the knowledge I learn through films or other means, to hopefully make a difference."
+        ],
+        "fr":
+        [
+
+        ]
+    },
+    "projectsComputer": 
+    {
+        "en": "Check out my computer projects!",
+        "fr": "PLACEHOLDER"
+    },
+    "projectsFilm": 
+    {
+        "en": "Check out my movie & art portfolio!",
+        "fr": "PLACEHOLDER"
+    },
+    "work":
+    {
+        "en": "Wanna work with me?",
+        "fr": "PLACEHOLDER"
+    },
+    "languages":
+    {
+        "info": "I am familiar to certain degrees with the following languages",
+        "expert":
+        [
+            "C#",
+            "VBA",
+            "HTML, CSS, JavaScript",
+            "WPF"
+        ],
+        "intermediate":
+        [
+            "SQL",
+            "Bash/Powershell",
+            "ASP.NET",
+            "Java",
+            "Python"
+        ],
+        "beginner":
+        [
+            "Kotlin",
+            "MongoDB"
+        ]
+    }
+}
