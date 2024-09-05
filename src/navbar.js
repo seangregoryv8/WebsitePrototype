@@ -24,32 +24,47 @@ function resizeNav()
         imgTag.classList.add("dropbtn");
         imgTag.src = "./icons/menu.png";
         imgTag.width = 50;
+        imgTag.align = "right";
         options.appendChild(imgTag);
 
-        imgTag.addEventListener("mouseclick", () => 
+        imgTag.addEventListener("click", () => 
         {
-            let nav = document.getElementsByClassName("navBar")[0];
-            console.log(nav.clientHeight)
-            
+            let nav = document.getElementsByTagName("nav")[0];
+            if (options.children.length == 1)
+            {
+                let divtag = document.createElement("div");
+                divtag.classList.add("dropdown-content");
+        
+                makeTags(["Home", "Projects", "GitHub", "Contact"], divtag);
+
+                options.appendChild(divtag);
+
+                nav.style.height = "auto";
+            }
+            else
+            {
+                nav.style.height = "96px";
+                
+                options.removeChild(options.children[1]);
+            }
         })
-
-        let divtag = document.createElement("div");
-        divtag.classList.add("dropdown-content");
-
+    }
+}
+/**
+ * 
+ * @param {string[]} tags 
+ * @param {HTMLDivElement} divtag
+ */
+function makeTags(tags, divtag)
+{
+    for (let i = 0; i < tags.length; i++)
+    {
         let pTag = document.createElement("p");
-        pTag.innerHTML = "Home";
+        pTag.innerHTML = tags[i];
+        pTag.style.textAlign = "right";
+        pTag.style.marginRight = "10px";
+        pTag.style.paddingTop = "10px";
         divtag.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "Projects";
-        divtag.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "GitHub";
-        divtag.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "Contact";
-        divtag.appendChild(pTag);
-
-        options.appendChild(divtag);
     }
 }
 
