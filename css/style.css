@@ -1,0 +1,23 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.title
+{
+    background-image: url("../images/test.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0%, 100% 50%, 50% 60%, 0 50%);
+}

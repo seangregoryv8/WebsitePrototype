@@ -1,6 +1,14 @@
 function resizeNav()
 {
-    let width = window.screen.availWidth
+    let width = window.innerWidth
+    let sec = document.getElementsByTagName("section")[0];
+
+    let height = (width / 1.5 < 600) ? 600 : width / 1.5
+    
+    sec.style.height = `${height}px`
+    let titl = document.getElementsByTagName("h1")[0];
+    console.log(titl)
+    titl.style.paddingBottom = `${height / 2}px`
     let options = document.getElementsByClassName("dropdown")[0];
     options.innerHTML = "";
     if (width >= 1160)
