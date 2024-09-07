@@ -22,4 +22,16 @@
         font-size: 24px;
         text-align: center;
     }
+    .aboutMeSection, .aboutLanguagesSection
+    {
+        margin: 0 10%;
+    }
+    .aboutMeTitle, .aboutLanguagesTitle
+    {
+        font-size: 50px;
+    }
+    .aboutMeImage
+    {
+        visibility: hidden;
+    }
 }

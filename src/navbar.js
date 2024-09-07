@@ -1,30 +1,24 @@
+import { changeLanguage } from "./main.js";
+
 function resizeNav()
 {
     let width = window.innerWidth
-    let sec = document.getElementsByTagName("section")[0];
+    let sec = document.getElementsByClassName("title")[0];
 
-    let height = (width / 1.5 < 600) ? 600 : width / 1.5
+    if (width >= 1160) console.log("DESKTOP")
+    else if (width >= 600) console.log("TABLET")
+    else console.log("MOBILE")
+    let height = (width / 2.5 < 600) ? 600 : width / 2.5
     
     sec.style.height = `${height}px`
     let titl = document.getElementsByTagName("h1")[0];
-    console.log(titl)
     titl.style.paddingBottom = `${height / 2}px`
     let options = document.getElementsByClassName("dropdown")[0];
     options.innerHTML = "";
     if (width >= 1160)
     {
-        let pTag = document.createElement("p");
-        pTag.innerHTML = "Home";
-        options.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "Projects";
-        options.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "GitHub";
-        options.appendChild(pTag);
-        pTag = document.createElement("p");
-        pTag.innerHTML = "Contact";
-        options.appendChild(pTag);
+        makeTags(["Home", "Projects", "GitHub", "Contact"], options);
+        makeLanguageToggle(options);
     }
     else
     {
@@ -67,13 +61,58 @@ function makeTags(tags, divtag)
 {
     for (let i = 0; i < tags.length; i++)
     {
-        let pTag = document.createElement("p");
-        pTag.innerHTML = tags[i];
-        pTag.style.textAlign = "right";
-        pTag.style.marginRight = "10px";
-        pTag.style.paddingTop = "10px";
-        divtag.appendChild(pTag);
+        let a = document.createElement("a");
+        a.innerHTML = tags[i];
+        a.style.textAlign = "right";
+        a.style.marginRight = "10px";
+        a.style.paddingTop = "10px";
+        if (a.innerHTML == "GitHub") a.addEventListener("click", () => window.open("https://github.com/seangregoryv8").focus())
+        if (a.innerHTML == "Projects") a.href = "./portfolio.html#computer"
+        if (a.innerHTML == "Contact") a.href = "./contact.html"
+        if (a.innerHTML == "Home") a.href = "./index.html"
+        divtag.appendChild(a);
     }
+}
+/**
+ * 
+ * @param {Element} tag 
+ */
+function makeLanguageToggle(tag)
+{
+    let div = document.createElement("div");
+    div.classList.add("language-dropdown");
+    div.style.margin = "20px";
+
+    let label = document.createElement("label");
+    label.setAttribute('for', "language-select");
+    div.appendChild(label);
+
+    let select = document.createElement("select");
+    select.id = "language-select";
+    select.style.backgroundColor = "transparent";
+    select.style.fontSize = "24px";
+    select.style.color = "white";
+    select.style.border = "none";
+
+    let options = [];
+    options[0] = document.createElement("option");
+    options[0].setAttribute('value', "en");
+    options[0].setAttribute('selected', "true");
+    options[0].innerHTML = "en";
+
+    options[1] = document.createElement("option");
+    options[1].setAttribute('value', "fr");
+    options[1].innerHTML = "fr";
+
+    options.forEach(option => 
+    {
+        option.style.color = "black";
+        option.addEventListener("click", () => {changeLanguage(option.innerHTML)});
+        select.appendChild(option);
+    })
+
+    div.appendChild(select);
+    tag.appendChild(div);
 }
 
 resizeNav();

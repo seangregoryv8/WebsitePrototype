@@ -4,5 +4,29 @@
         "type": "film",
         "description": "This is my first portfolio item. Look at how badass it is!",
         "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
+    },
+    "climatesGraveyard":
+    {
+        "type": "film",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
+    },
+    "panicAtWork":
+    {
+        "type": "film",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
+    },
+    "danceWithMe":
+    {
+        "type": "film",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
+    },
+    "derivativesInOneMinute":
+    {
+        "type": "film",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
     }
 }

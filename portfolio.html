@@ -3,34 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style-computer.css">
     <link rel="stylesheet" href="./css/style-tablet.css">
     <link rel="stylesheet" href="./css/style-mobile.css">
     <link rel="stylesheet" href="./css/itemPrep.css">
     <link rel="stylesheet" href="./css/buttonMain.css">
+    <link rel="stylesheet" href="./css/navbar.css">
 
     <title>Sean Gregory</title>
 </head>
 <body>
     <nav>
-        <div class="navBar">
-
-        </div>
-        <div class="navBarOptions">
-            <div class="wrapper" style="grid-column: 2;">
-                <a class="button">Computer Science</a>
-            </div>
-            <div class="wrapper" style="grid-column: 4;">
-                <a class="button">Filmmaking</a>
-            </div>
+        <ul class="navBar">
+            <li class="navTitle">Sean Gregory</li>
+            <li class="navLinks">
+                <div class="dropdown">
+                    
+                </div>
+            </li>
         </div>
     </nav>
     <section class="title">
-        <h1 class="computerTitle">Sean Gregory</h1>
+        <h1 class="computerTitle">My Portfolio</h1>
     </section>
+
+    <div class="explanationSection">
+        <h2 class="explanationTitle">Hello World</h2>
+    </div>
+    <div class="navBarOptions">
+        <div class="wrapper" style="grid-column: 2;">
+            <a class="button">Computer Science</a>
+        </div>
+        <div class="wrapper" style="grid-column: 4;">
+            <a class="button">Filmmaking</a>
+        </div>
+    </div>
     <div class="list">
     </div>
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/navbar.js"></script>
     <!--<script type="text/javascript">
         MYLIBRARY.init(["somevalue"]);
         MYLIBRARY.helloWorld();

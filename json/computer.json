@@ -11,5 +11,122 @@
         ],
         "preview": "./images/refurbished.png",
         "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "heavenJumper":
+    {
+        "type": "game",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "cube":
+    {
+        "type": "game",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "letsBox":
+    {
+        "type": "game",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "madnessZombieHorde":
+    {
+        "type": "game",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "masterTracker":
+    {
+        "type": "website",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "helloWorldMap":
+    {
+        "type": "website",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "slotMachine":
+    {
+        "type": "website",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "plantChecker":
+    {
+        "type": "website",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
+    },
+    "pizzaShop":
+    {
+        "type": "website",
+        "description": "This is my first portfolio item. Look at how badass it is!",
+        "languages": 
+        [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "preview": "./images/refurbished.png",
+        "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"
     }
 }

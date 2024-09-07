@@ -1,10 +1,64 @@
-import { fetchJsonFiles } from "./readJson.js";
+import { fetchInfoJsonFiles, fetchJsonFiles } from "./readJson.js";
 
+var language = "en";
 var jsonPortfolio = [];
+var jsonInfo = [];
+
+export function getLanguage() { return language; }
 
 async function getData()
 {
     jsonPortfolio = await fetchJsonFiles() || [];
+    jsonInfo = await fetchInfoJsonFiles() || [];
+}
+
+export function changeLanguage(newLanguage)
+{
+    language = newLanguage;
+    getAboutMe();
+}
+
+function getPortfolioExplanations()
+{
+    let obj = (language == "en") ? jsonInfo.en : jsonInfo.fr;
+    console.log(obj.portfolioDesc)
+    document.getElementsByClassName("explanationTitle")[0].innerHTML = obj.portfolioDesc
+}
+
+function getAboutMe()
+{
+    let obj = (language == "en") ? jsonInfo.en : jsonInfo.fr;
+    document.getElementsByClassName("aboutMeTitle")[0].innerHTML = obj.aboutMeTitle
+    let desc =  document.getElementsByClassName("aboutMeDescription")[0]
+    desc.innerHTML = ""
+    obj.aboutMeDescription.forEach(line =>
+    {
+        let lin = document.createElement("p");
+        lin.innerHTML = line;
+        desc.appendChild(lin);
+
+        desc.appendChild(document.createElement("br"));
+    });
+    document.getElementsByClassName("aboutMeProjectComputer")[0].innerHTML = obj.projectsComputer
+    document.getElementsByClassName("aboutMeProjectFilm")[0].innerHTML = obj.projectsFilm
+    document.getElementsByClassName("aboutMeWorkWith")[0].innerHTML = obj.work
+
+    let languages = obj.languages
+    console.log(languages)
+    document.getElementsByClassName("aboutLanguagesTitle")[0].innerHTML = languages.title;
+    document.getElementsByClassName("aboutLangaugesDescription")[0].innerHTML = languages.info;
+
+    document.getElementsByClassName("allLanguages")[0].innerHTML = ""
+    languages.expert.forEach(language => languageMaker(language, "Expert"))
+    languages.intermediate.forEach(language => languageMaker(language, getLanguage() == "en" ? "Intermediate" : "Intermédiaire"))
+    languages.beginner.forEach(language => languageMaker(language, getLanguage() == "en" ? "Beginner" : "Débutant"))
+}
+
+function languageMaker(desc, exp)
+{
+    let p = document.createElement("p");
+    p.innerHTML = "(" + exp + ") " + desc;
+    document.getElementsByClassName("allLanguages")[0].appendChild(p);
 }
 
 /**
@@ -96,4 +150,10 @@ document.addEventListener('DOMContentLoaded', () =>
     }
 })
 
-getData();
+await getData();
+console.log(window.location.href.indexOf("index.html"))
+if (window.location.href.indexOf("index.html") != -1)
+    getAboutMe();
+else if (window.location.href.indexOf("portfolio.html") != -1)
+    getPortfolioExplanations();
+console.log(window.location.href)
