@@ -1,9 +1,16 @@
-@media only screen and (min-width: 1160px)
+@media only screen and (max-width: 1160px) and (min-width: 600px)
 {
+    .explanationTitle
+    {
+        margin: 0 10%;
+        margin-bottom: 20px;
+        font-family: "Broadmoor";
+    }
     .navBarOptions
     {
         display: grid;
-        grid-template-columns: 10% auto 5% auto 10%;
+        grid-template-columns: 10% auto 10%;
+        grid-template-rows: auto auto;
     }
     .compWrapper
     {
@@ -11,13 +18,13 @@
     }
     .artWrapper
     {
-        grid-column: 4;
+        grid-column: 2;
+        grid-row: 2;
     }
-    
+
     .list
     {
-        display: grid;
-        grid-template-columns: 50% 50%;
+        margin: 0 10%;
     }
 
     .navBarOptions div
@@ -33,22 +40,23 @@
         margin: 15px 30px;
         padding: 20px 0;
         display: grid;
-        grid-template-rows: 80% 20%;
+        grid-template-rows: 70% 30%;
         justify-items: center;
         align-items: center;
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
     }
+    
     #itemTitle
     {
         grid-row: 2;
         height: 100%;
-        font-size: 30px;
+        font-size: 36px;
         font-family: "ParkLane";
     }
 
-    
+
     .itemImage
     {
         display: block;
