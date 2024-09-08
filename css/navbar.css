@@ -7,9 +7,8 @@
     .navBar
     {
         height: 100%;
-        padding: 20px 6rem;
-        list-style-type: none;
-        overflow: hidden;
+        padding: 5px 6rem;
+        list-style-type: none; 
         position: sticky;
         top: 0;
         display: flex;

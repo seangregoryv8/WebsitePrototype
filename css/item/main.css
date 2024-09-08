@@ -1,0 +1,14 @@
+.content
+{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+body
+{
+    display: block;
+    position: fixed;
+    inset: 0;
+}

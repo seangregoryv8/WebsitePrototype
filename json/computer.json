@@ -119,12 +119,18 @@
     "pizzaShop":
     {
         "type": "website",
-        "description": "This is my first portfolio item. Look at how badass it is!",
+        "images": "pizza",
+        "description": 
+        [
+            "A pizza restaurant website designed for the Fall 2021 Web Programming III course.",
+            "This website demonstrates the C-R-U-D operations in a database, as well as showcasing more creative elements.",
+            "I was in charge of mostly the front-end and part functionality, done alongside <"
+        ],
         "languages": 
         [
-            "HTML",
-            "CSS",
-            "JavaScript"
+            "C#",
+            ".NET Core MVC",
+            "Entity Framework Core"
         ],
         "preview": "./images/refurbished.png",
         "source": "https://seangregoryv8.github.io/RefurbishedImmortality/"

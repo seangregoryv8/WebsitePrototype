@@ -1,0 +1,52 @@
+@media only screen and (min-width: 1160px)
+{
+    .navBarOptions
+    {
+        display: grid;
+        grid-template-columns: 10% auto 5% auto 10%;
+    }
+    
+    .navBarOptions div
+    {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .list
+    {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin: 0 10%;
+    }
+    .item
+    {
+        background-color: rgb(40, 40, 40);
+        height: 17em;
+        margin: 5px 30px;
+        display: grid;
+        grid-template-rows: 80% 20%;
+        justify-items: center;
+        align-items: center;
+        background-image: url("../../images/borders/border-1-vector.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #itemTitle
+    {
+        grid-row: 2;
+        height: 100%;
+        font-size: 30px;
+        font-family: "ParkLane";
+    }
+
+    .itemImage
+    {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+}

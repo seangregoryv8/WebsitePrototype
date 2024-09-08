@@ -10,18 +10,6 @@
     {
         text-align: center;
     }
-    
-    .navBarOptions
-    {
-        display: grid;
-        grid-template-columns: 10% auto 5% auto 10%;
-    }
-    
-    .navBarOptions div
-    {
-        font-size: 24px;
-        text-align: center;
-    }
 
     .aboutMeContainer
     {

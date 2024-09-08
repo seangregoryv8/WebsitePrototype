@@ -3,16 +3,12 @@ import { changeLanguage } from "./main.js";
 function resizeNav()
 {
     let width = window.innerWidth
-    let sec = document.getElementsByClassName("title")[0];
 
     if (width >= 1160) console.log("DESKTOP")
     else if (width >= 600) console.log("TABLET")
     else console.log("MOBILE")
-    let height = (width / 2.5 < 600) ? 600 : width / 2.5
-    
-    sec.style.height = `${height}px`
-    let titl = document.getElementsByTagName("h1")[0];
-    titl.style.paddingBottom = `${height / 2}px`
+
+
     let options = document.getElementsByClassName("dropdown")[0];
     options.innerHTML = "";
     if (width >= 1160)
@@ -65,7 +61,6 @@ function makeTags(tags, divtag)
         a.innerHTML = tags[i];
         a.style.textAlign = "right";
         a.style.marginRight = "10px";
-        a.style.paddingTop = "10px";
         if (a.innerHTML == "GitHub") a.addEventListener("click", () => window.open("https://github.com/seangregoryv8").focus())
         if (a.innerHTML == "Projects") a.href = "./portfolio.html#computer"
         if (a.innerHTML == "Contact") a.href = "./contact.html"

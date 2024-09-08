@@ -15,12 +15,17 @@
     {
         "type": "film",
         "description": "This is my first portfolio item. Look at how badass it is!",
-        "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
+        "source": "https://www.youtube.com/embed/SeM4JTgRFSA?si=-vZEhlocPrgcriid"
     },
     "danceWithMe":
     {
         "type": "film",
-        "description": "This is my first portfolio item. Look at how badass it is!",
+        "images": "dance",
+        "description": 
+        [
+            "Made in half a year, this short movie tells the tale of a scientist in the wrong place at the wrong time.",
+            "Using a mix of animation and live action, clever sound design, and gripping analog horror elements, you're sure not to sleep tonight after watching."
+        ],
         "source": "https://www.youtube.com/embed/D-LhSjYk6OQ?controls=0"
     },
     "derivativesInOneMinute":

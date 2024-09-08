@@ -18,10 +18,21 @@ export function changeLanguage(newLanguage)
     getAboutMe();
 }
 
+function resizeTitle()
+{
+    let width = window.innerWidth
+    let sec = document.getElementsByClassName("title")[0];
+
+    let height = (width / 2.5 < 600) ? 600 : width / 2.5
+    
+    sec.style.height = `${height}px`
+    let titl = document.getElementsByTagName("h1")[0];
+    titl.style.paddingBottom = `${height / 2}px`
+}
+
 function getPortfolioExplanations()
 {
     let obj = (language == "en") ? jsonInfo.en : jsonInfo.fr;
-    console.log(obj.portfolioDesc)
     document.getElementsByClassName("explanationTitle")[0].innerHTML = obj.portfolioDesc
 }
 
@@ -44,7 +55,6 @@ function getAboutMe()
     document.getElementsByClassName("aboutMeWorkWith")[0].innerHTML = obj.work
 
     let languages = obj.languages
-    console.log(languages)
     document.getElementsByClassName("aboutLanguagesTitle")[0].innerHTML = languages.title;
     document.getElementsByClassName("aboutLangaugesDescription")[0].innerHTML = languages.info;
 
@@ -75,34 +85,52 @@ function showData(type)
             let home = document.getElementsByClassName("list")[0];
             for (let i = 0; i < arr.length; i++)
             {
+                let key = formatTitle(keys[i]).trim();
                 let item = document.createElement("section");
                 item.classList.add("item");
+                item.onclick = () => 
+                {
+                    const newThing = arr[i];
+                    newThing.title = key;
+                    const queryString = new URLSearchParams(newThing);
+                    const imageURL = `./images/${arr[i].images}/main.png`;
+                    localStorage.setItem("backgroundImageUrl", imageURL)
+                    window.location.href = `./item.html?${queryString}`;
+                }
 
                 let title = document.createElement("h2");
-                title.classList.add("itemTitle");
-                title.innerHTML = formatTitle(keys[i]);
+                title.id = "itemTitle";
+                title.classList.add("shine");
+                title.innerHTML = key;
                 item.appendChild(title);
 
-                let description = document.createElement("p");
-                description.classList.add("itemDescription");
-                description.innerHTML = arr[i].description;
-                item.appendChild(description);
-
                 let source;
-                console.log(arr[i].type)
-                switch (arr[i].type)
+
+                if (arr[i].images != null)
                 {
-                    case "film":
-                        source = document.createElement("iframe");
-                        source.classList.add("itemImage");
-                        source.src = arr[i].source;
-                        item.appendChild(source);
-                    case "game":
-                        source = document.createElement("img");
-                        source.classList.add("itemImage");
-                        source.src = arr[i].preview;
-                        source.onclick = () => window.location.href = arr[i].source;
-                        item.appendChild(source);
+                    source = document.createElement("img");
+                    source.classList.add("itemImage");
+                    source.src = `./images/${arr[i].images}/thumb.png`;
+                    item.appendChild(source);
+                }
+                else
+                {
+                    switch (arr[i].type)
+                    {
+                        case "film":
+                            source = document.createElement("iframe");
+                            source.classList.add("itemImage");
+                            source.src = arr[i].source;
+                            item.appendChild(source);
+                            break;
+                        case "game":
+                            source = document.createElement("img");
+                            source.classList.add("itemImage");
+                            source.src = arr[i].preview;
+                            source.onclick = () => window.location.href = arr[i].source;
+                            item.appendChild(source);
+                            break;
+                    }
                 }
                 home.appendChild(item);
             }
@@ -142,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () =>
         //items[i].children[0].style.backgroundColor = "#8b0000"
         items[i].children[0].addEventListener("click", () => 
         {
-            console.log(window.screen.availWidth)
             //items[i].children[0].style.backgroundColor = "#00AA00"
             document.getElementsByClassName("list")[0].textContent = "";
             showData(items[i].children[0].innerHTML);
@@ -153,7 +180,13 @@ document.addEventListener('DOMContentLoaded', () =>
 await getData();
 console.log(window.location.href.indexOf("index.html"))
 if (window.location.href.indexOf("index.html") != -1)
+{
+    resizeTitle();
     getAboutMe();
+}
 else if (window.location.href.indexOf("portfolio.html") != -1)
+{
     getPortfolioExplanations();
+    resizeTitle();
+}
 console.log(window.location.href)
