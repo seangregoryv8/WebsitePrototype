@@ -1,15 +1,7 @@
-function getData()
-{
-    const params = new URLSearchParams(window.location.search);
-    const data = {};
-    for (const [key, value] of params)
-    {
-        data[key] = value;
-    }
-    return data;
-}
+import { getRandomNumber } from "./main.js";
 
-const data = getData();
+const jsonString = localStorage.getItem("portfolioItem") || "";
+const data = JSON.parse(jsonString);
 console.log(data);
 
 const imageURL = localStorage.getItem("backgroundImageUrl");
@@ -24,3 +16,20 @@ if (imageURL)
 
     img.onload = () => { content.style.height = `${img.height}px` }
 }
+
+document.getElementsByClassName("contentTitle")[0].innerHTML = data.title;
+
+let description = document.getElementsByClassName("contentDesc")[0];
+description.innerHTML = "";
+
+data.description.forEach(desc => 
+{
+    let p = document.createElement("p");
+    p.innerHTML = desc;
+    description.appendChild(p);
+
+    let br = document.createElement("br");
+    description.appendChild(br);
+});
+
+document.getElementsByClassName("contentBox")[0].style.backgroundImage = `url('../../images/borders/border-${getRandomNumber(1, 4)}.svg')`

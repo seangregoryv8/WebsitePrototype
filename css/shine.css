@@ -1,9 +1,12 @@
 .shine
 {
     font-size: 0.5em;
-    margin:auto;top:0;bottom:0;left:0;right:0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
 }
 
 .shine
@@ -13,13 +16,13 @@
     -webkit-background-clip: text;
     -webkit-animation-name: shine;
     -webkit-animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+    -webkit-animation-iteration-count: infinite;
+    text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes shine
 {
     0%,5%     {    background-position: -150%;  }
-    20%       {    background-position: top left - 500px;  }
-    90%       {    background-position: 150%;  }
-    100%      {    background-position: 300%;  }
+    35%       {    background-position: 100%;  }
+    100%      {    background-position: 600%;  }
 }

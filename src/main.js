@@ -4,6 +4,10 @@ var language = "en";
 var jsonPortfolio = [];
 var jsonInfo = [];
 
+export function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 export function getLanguage() { return language; }
 
 async function getData()
@@ -87,15 +91,18 @@ function showData(type)
             {
                 let key = formatTitle(keys[i]).trim();
                 let item = document.createElement("section");
+                item.style.backgroundImage = `url('../../images/borders/border-${getRandomNumber(1, 4)}.svg')`
                 item.classList.add("item");
+
                 item.onclick = () => 
                 {
                     const newThing = arr[i];
                     newThing.title = key;
-                    const queryString = new URLSearchParams(newThing);
+                    const jsonString = JSON.stringify(newThing);
+                    localStorage.setItem("portfolioItem", jsonString)
                     const imageURL = `./images/${arr[i].images}/main.png`;
                     localStorage.setItem("backgroundImageUrl", imageURL)
-                    window.location.href = `./item.html?${queryString}`;
+                    window.location.href = `./item.html?${keys[i]}`;
                 }
 
                 let title = document.createElement("h2");
@@ -161,24 +168,26 @@ function formatTitle(title)
     return newTitle
 }
 
-document.addEventListener('DOMContentLoaded', () => 
+if (window.location.href.indexOf("item.html") == -1)
 {
-    let navBarOptions = document.getElementsByClassName("navBarOptions")[0];
-    let items = navBarOptions.getElementsByTagName("div");
-    for (let i = 0; i < items.length; i++)
-    {
-        //items[i].children[0].style.backgroundColor = "#8b0000"
-        items[i].children[0].addEventListener("click", () => 
+    document.addEventListener('DOMContentLoaded', () => 
         {
-            //items[i].children[0].style.backgroundColor = "#00AA00"
-            document.getElementsByClassName("list")[0].textContent = "";
-            showData(items[i].children[0].innerHTML);
-        });
-    }
-})
+            let navBarOptions = document.getElementsByClassName("navBarOptions")[0];
+            let items = navBarOptions.getElementsByTagName("div");
+            for (let i = 0; i < items.length; i++)
+            {
+                //items[i].children[0].style.backgroundColor = "#8b0000"
+                items[i].children[0].addEventListener("click", () => 
+                {
+                    //items[i].children[0].style.backgroundColor = "#00AA00"
+                    document.getElementsByClassName("list")[0].textContent = "";
+                    showData(items[i].children[0].innerHTML);
+                });
+            }
+        })
+}
 
 await getData();
-console.log(window.location.href.indexOf("index.html"))
 if (window.location.href.indexOf("index.html") != -1)
 {
     resizeTitle();
@@ -189,4 +198,3 @@ else if (window.location.href.indexOf("portfolio.html") != -1)
     getPortfolioExplanations();
     resizeTitle();
 }
-console.log(window.location.href)
