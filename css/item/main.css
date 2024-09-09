@@ -31,3 +31,10 @@ body
     color: white;
     font-family: "Broadmoor";
 }
+
+.contentLink
+{
+    background-color: transparent;
+    padding: 10px 5em;
+    border-radius: 10px;
+}

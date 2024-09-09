@@ -1,8 +1,9 @@
-import { fetchInfoJsonFiles, fetchJsonFiles } from "./readJson.js";
+import { fetchColourJsonFiles, fetchInfoJsonFiles, fetchJsonFiles } from "./readJson.js";
 
 var language = "en";
 var jsonPortfolio = [];
 var jsonInfo = [];
+export var jsonColours = [];
 
 export function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -14,6 +15,9 @@ async function getData()
 {
     jsonPortfolio = await fetchJsonFiles() || [];
     jsonInfo = await fetchInfoJsonFiles() || [];
+    jsonColours = await fetchColourJsonFiles() || [];
+
+    document.getElementsByTagName("html")[0].style.backgroundColor = jsonColours.background
 }
 
 export function changeLanguage(newLanguage)
@@ -54,9 +58,13 @@ function getAboutMe()
 
         desc.appendChild(document.createElement("br"));
     });
+    
     document.getElementsByClassName("aboutMeProjectComputer")[0].innerHTML = obj.projectsComputer
+    document.getElementsByClassName("aboutMeProjectComputer")[0].addEventListener("click", () => window.location.href = "./portfolio.html#computer")
     document.getElementsByClassName("aboutMeProjectFilm")[0].innerHTML = obj.projectsFilm
+    document.getElementsByClassName("aboutMeProjectFilm")[0].addEventListener("click", () => window.location.href = "./portfolio.html#art")
     document.getElementsByClassName("aboutMeWorkWith")[0].innerHTML = obj.work
+    document.getElementsByClassName("aboutMeWorkWith")[0].addEventListener("click", () => window.location.href = "./contact.html")
 
     let languages = obj.languages
     document.getElementsByClassName("aboutLanguagesTitle")[0].innerHTML = languages.title;
@@ -72,6 +80,7 @@ function languageMaker(desc, exp)
 {
     let p = document.createElement("p");
     p.innerHTML = "(" + exp + ") " + desc;
+    p.style.backgroundColor = jsonColours.topics;
     document.getElementsByClassName("allLanguages")[0].appendChild(p);
 }
 
@@ -81,6 +90,7 @@ function languageMaker(desc, exp)
  */
 function showData(type)
 {
+    console.log(type);
     jsonPortfolio.forEach(port => {
         if (type.toLowerCase().includes(port.title))
         {
@@ -111,38 +121,16 @@ function showData(type)
                 title.innerHTML = key;
                 item.appendChild(title);
 
-                let source;
+                let source = document.createElement("img");
+                source.classList.add("itemImage");
+                source.src = `./images/${arr[i].images}/thumb.png`;
+                item.appendChild(source);
 
-                if (arr[i].images != null)
-                {
-                    source = document.createElement("img");
-                    source.classList.add("itemImage");
-                    source.src = `./images/${arr[i].images}/thumb.png`;
-                    item.appendChild(source);
-                }
-                else
-                {
-                    switch (arr[i].type)
-                    {
-                        case "film":
-                            source = document.createElement("iframe");
-                            source.classList.add("itemImage");
-                            source.src = arr[i].source;
-                            item.appendChild(source);
-                            break;
-                        case "game":
-                            source = document.createElement("img");
-                            source.classList.add("itemImage");
-                            source.src = arr[i].preview;
-                            source.onclick = () => window.location.href = arr[i].source;
-                            item.appendChild(source);
-                            break;
-                    }
-                }
                 home.appendChild(item);
             }
         }
     })
+
 }
 
 /**
@@ -168,23 +156,37 @@ function formatTitle(title)
     return newTitle
 }
 
+function colourButtons()
+{
+    console.log(jsonColours)
+    let buttons = document.getElementsByTagName("button");
+    Array.from(buttons).forEach(button => 
+    {
+        button.style.borderColor = jsonColours.buttonBorder;
+        button.style.color = jsonColours.button;
+        button.style.fontFamily = "Broadmoor";
+        button.style.backgroundColor = "#000000"
+    })
+}
+
 if (window.location.href.indexOf("item.html") == -1)
 {
     document.addEventListener('DOMContentLoaded', () => 
+    {
+        let navBarOptions = document.getElementsByClassName("navBarOptions")[0];
+        let items = navBarOptions.getElementsByTagName("div");
+        for (let i = 0; i < items.length; i++)
         {
-            let navBarOptions = document.getElementsByClassName("navBarOptions")[0];
-            let items = navBarOptions.getElementsByTagName("div");
-            for (let i = 0; i < items.length; i++)
+            //items[i].children[0].style.backgroundColor = "#8b0000"
+            items[i].children[0].addEventListener("click", () => 
             {
-                //items[i].children[0].style.backgroundColor = "#8b0000"
-                items[i].children[0].addEventListener("click", () => 
-                {
-                    //items[i].children[0].style.backgroundColor = "#00AA00"
-                    document.getElementsByClassName("list")[0].textContent = "";
-                    showData(items[i].children[0].innerHTML);
-                });
-            }
-        })
+                console.log(items[i])
+                //items[i].children[0].style.backgroundColor = "#00AA00"
+                document.getElementsByClassName("list")[0].textContent = "";
+                showData(items[i].children[0].innerHTML);
+            });
+        }
+    })
 }
 
 await getData();
@@ -197,4 +199,18 @@ else if (window.location.href.indexOf("portfolio.html") != -1)
 {
     getPortfolioExplanations();
     resizeTitle();
+    let buttonClick = window.location.href.split("#")[1];
+    console.log(buttonClick);
+
+    if (buttonClick != undefined)
+    {
+        document.getElementsByClassName("list")[0].textContent = "";
+        switch (buttonClick)
+        {
+            case "computer": showData("Computer Science");
+            case "art": showData("Filmmaking")
+        }
+    }
 }
+
+colourButtons();

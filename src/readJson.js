@@ -41,3 +41,20 @@ export async function fetchInfoJsonFiles()
     }
     catch (error) { console.log("Error fetching JSON files:", error)}
 }
+
+export async function fetchColourJsonFiles()
+{
+    try
+    {
+        const fileNames = ["colour.json"];
+
+        const jsonData = await Promise.all(fileNames.map(async file => 
+        {
+            const response = await fetch(`${jsonFolderPath}${file}`);
+            if (!response.ok) throw new Error(`Failed to fetch ${file}`)
+            return response.json();
+        }));
+        return jsonData[0];
+    }
+    catch (error) { console.log("Error fetching JSON files:", error)}
+}

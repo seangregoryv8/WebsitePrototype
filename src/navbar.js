@@ -1,4 +1,4 @@
-import { changeLanguage } from "./main.js";
+import { changeLanguage, jsonColours } from "./main.js";
 
 function resizeNav()
 {
@@ -7,6 +7,8 @@ function resizeNav()
     if (width >= 1160) console.log("DESKTOP")
     else if (width >= 600) console.log("TABLET")
     else console.log("MOBILE")
+
+    document.getElementsByTagName("nav")[0].style.backgroundColor = jsonColours.navbar;
 
 
     let options = document.getElementsByClassName("dropdown")[0];
@@ -62,7 +64,7 @@ function makeTags(tags, divtag)
         a.style.textAlign = "right";
         a.style.marginRight = "10px";
         if (a.innerHTML == "GitHub") a.addEventListener("click", () => window.open("https://github.com/seangregoryv8").focus())
-        if (a.innerHTML == "Projects") a.href = "./portfolio.html#computer"
+        if (a.innerHTML == "Projects") a.href = "./portfolio.html"
         if (a.innerHTML == "Contact") a.href = "./contact.html"
         if (a.innerHTML == "Home") a.href = "./index.html"
         divtag.appendChild(a);
